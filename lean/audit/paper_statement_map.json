@@ -1,0 +1,133 @@
+{
+  "schema": 1,
+  "paper": "QX26AgenticDelegation",
+  "source_url": "https://arxiv.org/abs/2605.25438v2",
+  "source_version": "arXiv v2, 2026-07-07",
+  "source_artifact_path": "papers\\QX26AgenticDelegation\\source-audited.pdf",
+  "source_artifact_sha256": "cddc048711c43022d5fd01b995bfb1114c728c8c879b809b5fdc354a391d3c35",
+  "source_inventory_kind": "pinned_statement_target_scaffold",
+  "source_curated": false,
+  "seed_scaffold": true,
+  "source_coverage_mode": "named_theoretical_statements",
+  "semantic_contract_policy": {
+    "schema": 1,
+    "activation": "Before Lean drafting, independently inventory every material source atom against exact pinned source quote bytes; do not infer that inventory from declaration, binder, field, or function names. After a source item has an audited paper-local specification and a theorem/lemma proving or refuting it, add top-level semantic_contract_schema: 1, classify every item with an explicit claim_bearing Boolean, and record semantic_contract for each true item. At formalized closeout, also add source_claim_atoms_schema: 1 and source_spec_correspondence_schema: 1. Bind each atom to an elaborated Spec component and account for every material Lean-closure terminal, including proof and instance arguments, by source atom, approved source correction/additional assumption, checked Lean derivation, or version-pinned foundation basis. Each statement-first row supplies an inactive semantic_contract_template pairing its transparent `...Spec : Prop` with its theorem/lemma. Promote that exact template only after the independent source audit passes, the theorem has exactly the transparent Spec type, the closure record passes, and the proof hole is replaced. Do not manufacture a contract from the temporary by-sorry statement skeleton alone. Legacy v10 evidence remains readable but is not a v11 realization credential. For a source-game result whose feasible-action equilibrium comparison uses a conditional/posterior or observation-contingent value, add the separately byte-pinned `semantic_context_requirements` kind `strategic_observation_totality`; it requires an explicit off-path/zero-probability totality audit and cannot be satisfied by a Lean-only default value.",
+    "required_fields": [
+      "spec_declaration",
+      "evidence_declaration",
+      "evidence_mode",
+      "semantic_shape"
+    ],
+    "evidence_modes": [
+      "proves",
+      "refutes"
+    ],
+    "semantic_shapes": [
+      "plain"
+    ],
+    "shape_policy": "Only plain exact-proposition contracts are currently enforced. Do not record a specialized runtime, preprocessing, or refinement shape until the audit implements its structural check.",
+    "source_defect_routing": "Every repaired_in_lean source-proof defect must be linked from a successfully checked contract item through source_defect_ids."
+  },
+  "items": {
+    "proposition1_frontier_expansion": {
+      "statement": "For every developer, language, date, and opportunity realization, Z^2_{ik,t} >= Z^1_{ik,t}, hence N^2_{it} >= N^1_{it} path by path.",
+      "source_item": "Proposition 1 (Frontier expansion)",
+      "source_kind": "proposition",
+      "source_location": "Section 4.2, Proposition 1, page 15",
+      "source_url": "https://arxiv.org/abs/2605.25438v2",
+      "source_status": "pinned statement-spec transcription; independent source audit pending",
+      "spec_lean_declarations": [
+        "proposition1_frontier_expansionSpec"
+      ],
+      "proof_lean_declarations": [
+        "proposition1_frontier_expansion"
+      ],
+      "semantic_contract_template": {
+        "spec_declaration": "proposition1_frontier_expansionSpec",
+        "evidence_declaration": "proposition1_frontier_expansion",
+        "evidence_mode": "proves",
+        "semantic_shape": "plain"
+      }
+    },
+    "proposition2_activation_band": {
+      "statement": "For an unfamiliar language satisfying Assumption 1, if B_{ik,t}>0, then Z^2_{ik,t}-Z^1_{ik,t}=1[T^D_{ik,t}<=omega_{ik,t}<T^S_{ik,t}]. If the conditional opportunity CDF F_{ik,t} is continuous, the probability that delegation activates the language is F_{ik,t}(T^S_{ik,t})-F_{ik,t}(T^D_{ik,t}), and expected language-count expansion is the sum over k of F_{ik,t}(T^1_{ik,t})-F_{ik,t}(T^2_{ik,t}), which is nonnegative.",
+      "source_item": "Proposition 2 (Activation band for unfamiliar languages)",
+      "source_kind": "proposition",
+      "source_location": "Section 4.2, Proposition 2, pages 15-16",
+      "source_url": "https://arxiv.org/abs/2605.25438v2",
+      "source_status": "pinned statement-spec transcription; independent source audit pending",
+      "spec_lean_declarations": [
+        "proposition2_activation_bandSpec"
+      ],
+      "proof_lean_declarations": [
+        "proposition2_activation_band"
+      ],
+      "semantic_contract_template": {
+        "spec_declaration": "proposition2_activation_bandSpec",
+        "evidence_declaration": "proposition2_activation_band",
+        "evidence_mode": "proves",
+        "semantic_shape": "plain"
+      }
+    },
+    "proposition3_dynamic_cumulative_effect": {
+      "statement": "For initially unfamiliar languages with per-period first-use hazards p^g_{ik}, if p^2_{ik}>=p^1_{ik}, then Delta C_i(s)=sum_k[(1-p^1_{ik})^(s+1)-(1-p^2_{ik})^(s+1)]>=0. In the closed-frontier benchmark p^1_{ik}=0<p^2_{ik}, the effect is strictly increasing and concave over the observed horizon.",
+      "source_item": "Proposition 3 (Dynamic cumulative-language effect)",
+      "source_kind": "proposition",
+      "source_location": "Section 4.3, Proposition 3, page 17; proof in Appendix A.6, pages 63-64",
+      "source_url": "https://arxiv.org/abs/2605.25438v2",
+      "source_status": "pinned statement-spec transcription; independent source audit pending",
+      "spec_lean_declarations": [
+        "proposition3_dynamic_cumulative_effectSpec"
+      ],
+      "proof_lean_declarations": [
+        "proposition3_dynamic_cumulative_effect"
+      ],
+      "semantic_contract_template": {
+        "spec_declaration": "proposition3_dynamic_cumulative_effectSpec",
+        "evidence_declaration": "proposition3_dynamic_cumulative_effect",
+        "evidence_mode": "proves",
+        "semantic_shape": "plain"
+      }
+    },
+    "proposition4_specialist_heterogeneity": {
+      "statement": "Under Assumption 3, expected expansion into initially unfamiliar languages is E[E_i | a_i,U_i]=U_i p_i(a_i,A). It is increasing in the stock U_i of unfamiliar-language candidates and in general ability a_i. The largest extensive-margin gains accrue to high-ability specialists.",
+      "source_item": "Proposition 4 (Specialist and ability heterogeneity)",
+      "source_kind": "proposition",
+      "source_location": "Appendix A.5, Proposition 4, pages 62-63",
+      "source_url": "https://arxiv.org/abs/2605.25438v2",
+      "source_status": "pinned statement-spec transcription; independent source audit pending",
+      "spec_lean_declarations": [
+        "proposition4_specialist_heterogeneitySpec"
+      ],
+      "proof_lean_declarations": [
+        "proposition4_specialist_heterogeneity"
+      ],
+      "semantic_contract_template": {
+        "spec_declaration": "proposition4_specialist_heterogeneitySpec",
+        "evidence_declaration": "proposition4_specialist_heterogeneity",
+        "evidence_mode": "proves",
+        "semantic_shape": "plain"
+      }
+    },
+    "proposition5_repository_expansion": {
+      "statement": "Suppose each repository requires at least one programming language and carries an entry cost weakly decreasing when the developer can activate that language. If agentic delegation weakly expands the active-language set, then the expected number of repositories the developer can contribute to weakly increases. It increases strictly when some repositories require languages in the delegation activation band.",
+      "source_item": "Proposition 5 (Repository expansion)",
+      "source_kind": "proposition",
+      "source_location": "Appendix A.8, Proposition 5, page 65",
+      "source_url": "https://arxiv.org/abs/2605.25438v2",
+      "source_status": "pinned statement-spec transcription; independent source audit pending",
+      "spec_lean_declarations": [
+        "proposition5_repository_expansionSpec"
+      ],
+      "proof_lean_declarations": [
+        "proposition5_repository_expansion"
+      ],
+      "semantic_contract_template": {
+        "spec_declaration": "proposition5_repository_expansionSpec",
+        "evidence_declaration": "proposition5_repository_expansion",
+        "evidence_mode": "proves",
+        "semantic_shape": "plain"
+      }
+    }
+  }
+}
