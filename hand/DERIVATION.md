@@ -1,23 +1,28 @@
-# Hand derivation required before submission
+# Typed reference for the handwritten derivation
 
-This folder intentionally does **not** contain a fabricated handwriting image. Write the derivation below by hand, photograph it clearly, and save the image as `hand/derivation.jpg`. The presentation will display it automatically when compiled.
+The authentic two-page derivation in this folder checks Proposition 2. Starting from the solo and delegation surpluses, it derives the thresholds `T^S` and `T^D`, uses Assumption 1 to obtain `T^1 = T^S`, and simplifies the delegation benefit
 
-For one unfamiliar language, let the pre-agent activation hazard be \(p_1\) and the post-agent hazard be \(p_2\), with \(0\le p_1\le p_2\le1\). By horizon \(t\), activation probability is
+\[
+B=T^S-T^D.
+\]
 
-\[A_j(t)=1-(1-p_j)^{t+1},\qquad j\in\{1,2\}.\]
+The manual sign check establishes that `B > 0` implies `T^D < T^S`. Defining
 
-Therefore the cumulative treatment gap is
+\[
+Z^1=\mathbf 1\{\omega\ge T^S\},\qquad
+Z^2=\mathbf 1\{\omega\ge T^D\},
+\]
 
-\[G(t)=A_2(t)-A_1(t)=(1-p_1)^{t+1}-(1-p_2)^{t+1}\ge0.\]
+the three-region argument gives
 
-Under the paper's closed-frontier comparison \(p_1=0\),
+\[
+Z^2-Z^1=\mathbf 1\{T^D\le\omega<T^S\}.
+\]
 
-\[G(t)=1-(1-p_2)^{t+1},\qquad \Delta G(t)=p_2(1-p_2)^{t+1}.\]
+For a continuous opportunity distribution `F`, the average expansion is
 
-Thus \(\Delta G(t)>0\) only if \(0<p_2<1\). At \(p_2=1\), \(G(t)=1\) for every \(t\), so strict growth fails. Moreover,
+\[
+\mathbb E[Z^2-Z^1]=F(T^S)-F(T^D).
+\]
 
-\[\Delta^2G(t)=-p_2^2(1-p_2)^{t+1}<0\]
-
-only for \(0<p_2<1\). Summing gives strict statements only when at least one unfamiliar language is present.
-
-**Verdict to write at the bottom:** “Weak result verified; strict result needs a nonempty unfamiliar set and \(0<p_2<1\).”
+The handwritten calculation is valuable because the long subtraction can conceal sign errors and the endpoint convention must be checked explicitly.

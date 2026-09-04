@@ -204,29 +204,14 @@ theorem activationBand : activationBandSpec := by\par
   \note{Timing: 1:25. Walk through both endpoints aloud. This guards against the most common indicator error. [Sources] Quispe--Xu Proposition 2 and Appendix proof.}
 \end{frame}
 
-\begin{frame}{7. Hand derivation: authentic evidence still pending}
-  \begin{columns}[T,onlytextwidth]
-    \column{0.56\textwidth}
-      \textbf{Required handwritten chain}
-      \begin{enumerate}
-        \item isolate $\omega$ in $V^S\ge0$ and $V^D\ge0$
-        \item use Assumption 1 to set $T^1=T^S$
-        \item simplify $B=T^S-T^D$
-        \item prove the indicator identity
-        \item test $T^D$ and $T^S$ separately
-      \end{enumerate}
-      \vspace{0.35cm}
-      \[
-        \mathbf 1\{\omega\ge T^D\}-\mathbf 1\{\omega\ge T^S\}
-        =\mathbf 1\{T^D\le\omega<T^S\}.
-      \]
-    \column{0.38\textwidth}
-      \begin{tikzpicture}
-        \node[draw=orange,dashed,rounded corners=4pt,minimum width=5.1cm,minimum height=4.4cm,text width=4.45cm,align=center,fill=orange!5] {\Large Authentic photo\\[0.25cm]\textbf{not yet supplied}\\[0.35cm]\small Add the user's own image as\\\texttt{hand/activation-band-\\derivation.jpg}};
-      \end{tikzpicture}
-  \end{columns}
-  \source{Repository hand/README.md; no synthetic image is used.}
-  \note{Timing: 0:50. State the integrity choice plainly: the repository prepares the derivation and exact filename but does not fabricate handwriting.}
+\begin{frame}{7. Hand derivation: checking the activation band}
+  \begin{center}
+    \includegraphics[height=5.65cm]{hand/activation-band-derivation-page1.jpg}
+    \hspace{0.35cm}
+    \includegraphics[height=5.65cm]{hand/activation-band-derivation-page2.jpg}
+  \end{center}
+  \source{Student's handwritten derivation; original two-page PDF archived in \texttt{hand/}.}
+  \note{Timing: 0:50. Explain that the long subtraction and the open/closed endpoints were checked by hand to avoid silent sign or indicator errors.}
 \end{frame}
 
 \begin{frame}{8. A numerical stress test exposes the switch}
