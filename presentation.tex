@@ -1,0 +1,407 @@
+\documentclass[aspectratio=169,10pt]{beamer}
+
+\usepackage{amsmath,amssymb,booktabs,array}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{listings}
+\usepackage{ragged2e}
+\usepackage{hyperref}
+\usetikzlibrary{arrows.meta,positioning,calc}
+\pgfplotsset{compat=1.18}
+
+\definecolor{navy}{HTML}{102A43}
+\definecolor{teal}{HTML}{0E7C86}
+\definecolor{orange}{HTML}{E57A44}
+\definecolor{ink}{HTML}{243B53}
+\definecolor{muted}{HTML}{627D98}
+\definecolor{paper}{HTML}{F5F7FA}
+\definecolor{pale}{HTML}{E6FFFA}
+
+\setbeamercolor{normal text}{fg=ink,bg=white}
+\setbeamercolor{structure}{fg=teal}
+\setbeamercolor{frametitle}{fg=navy,bg=white}
+\setbeamercolor{title}{fg=navy}
+\setbeamercolor{alerted text}{fg=orange}
+\setbeamercolor{footline}{fg=muted,bg=white}
+\setbeamerfont{title}{series=\bfseries,size=\LARGE}
+\setbeamerfont{frametitle}{series=\bfseries,size=\Large}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize item}{\color{teal}\raise0.2ex\hbox{\scriptsize$\blacktriangleright$}}
+\setbeamertemplate{footline}{%
+  \leavevmode\hbox{\begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.0ex,leftskip=0.55cm,rightskip=0.55cm]{footline}%
+    \scriptsize Quispe--Xu (2026)\hfill\insertframenumber/\inserttotalframenumber
+  \end{beamercolorbox}}}
+\setbeamertemplate{note page}[plain]
+\setbeameroption{hide notes}
+
+\newcommand{\source}[1]{\vfill{\color{muted}\tiny Source: #1\par}}
+\newcommand{\pill}[1]{\tikz[baseline=(n.base)]\node[fill=pale,rounded corners=2pt,inner xsep=5pt,inner ysep=2pt,text=teal,font=\scriptsize\bfseries] (n) {#1};}
+\newcommand{\resultbox}[1]{\begin{beamercolorbox}[rounded=true,sep=0.55em,wd=\linewidth]{block body}#1\end{beamercolorbox}}
+\setbeamercolor{block body}{fg=navy,bg=pale}
+
+\lstdefinelanguage{Lean}{morekeywords={theorem,by,intro,constructor,exact,simpa,omega,linarith,have,show,if,then,else},sensitive=true,morecomment=[l]{--}}
+\lstset{language=Lean,basicstyle=\ttfamily\scriptsize,keywordstyle=\color{teal}\bfseries,commentstyle=\color{muted},showstringspaces=false,columns=fullflexible,keepspaces=true,frame=single,rulecolor=\color{muted},framerule=0.3pt}
+
+\newcommand{\LeanBuildResult}{\textcolor{orange}{FAIL: no paper folder; missing \texttt{status.json}.}}
+\newcommand{\LeanSnippet}{%
+\begin{beamercolorbox}[rounded=true,sep=0.45em,wd=\linewidth]{block body}
+{\ttfamily\scriptsize
+theorem activationBand : activationBandSpec := by\par
+\textcolor{muted}{\quad ...}\par
+\quad have hcopilot :\par
+\qquad Tsolo <= Tsolo - (gamma * skill - interactionCost) := by linarith\par
+\quad have hdelegate : Tdelegate < Tsolo := by linarith\par
+\quad rw [min\_eq\_left hcopilot, min\_eq\_right hdelegate.le]\par
+\quad by\_cases hD : Tdelegate <= omega\par
+\quad by\_cases hS : Tsolo <= omega\par
+\quad simp [hD, hS, not\_lt.mpr hS]\par}
+\end{beamercolorbox}\par\vspace{0.18cm}}
+
+\title{Agentic delegation and the language frontier}
+\subtitle{Quispe \& Xu (2026): citation audit, model, evidence, and a formal check}
+\author{Repository 3}
+\date{20-minute presentation}
+
+\begin{document}
+
+\begin{frame}[plain]
+  \vspace{0.55cm}
+  {\color{teal}\large Repository 3}\par\vspace{0.35cm}
+  {\usebeamerfont{title}\color{navy}Agentic delegation and\\the language frontier}\par\vspace{0.45cm}
+  {\large Quispe \& Xu (2026)}\par\vspace{0.8cm}
+  \begin{tikzpicture}
+    \draw[navy,line width=2pt] (0,0)--(10.8,0);
+    \draw[orange,line width=5pt] (7.6,0)--(10.8,0);
+  \end{tikzpicture}
+  \vfill
+  {\small\href{https://github.com/davidolano03/ai-03-quispe}{github.com/davidolano03/ai-03-quispe}}\hfill{\small 20 minutes}
+  \note{Timing: 0:30. Open with the outcome: the citation changed, and the model's decisive object is an entry threshold. [Sources] arXiv:2605.25438v2, title page and abstract.}
+\end{frame}
+
+\begin{frame}{1. The citation check changes the object}
+  \small
+  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{1.4cm}>{\raggedright\arraybackslash}p{4.4cm}>{\raggedright\arraybackslash}p{7.0cm}@{}}
+    \toprule
+    & \textbf{Prompt citation} & \textbf{arXiv 2605.25438v2} \\
+    \midrule
+    Title & \emph{Coding Beyond Your Training: Claude Code and the Technological Frontier of Software Developers} & \emph{Agentic Delegation and the Language Frontier of Software Developers: A Model and Evidence from Claude Code on GitHub} \\
+    Authors & Quispe & Alexander Quispe; Kevin Xu \\
+    Date & 2026 only & v1: May 25; v2: July 7; PDF: July 8, 2026 \\
+    Sample & not stated & 5,346 developers; 28 months; 3.2m commits; 57m changed files \\
+    \bottomrule
+  \end{tabular}
+  \vspace{0.55cm}
+  \resultbox{The old title is real---the v2 PDF identifies it as an earlier circulated version---but it is not the current citation and it omits Xu.}
+  \source{Quispe and Xu, arXiv:2605.25438v2, record, title page, abstract, and footnote 1.}
+  \note{Timing: 1:20. Explain the zero-context check: the original string cannot establish coauthor, version, or sample. Then reveal the record. [Sources] arXiv:2605.25438v2; paper pp. 1--2.}
+\end{frame}
+
+\begin{frame}{2. What frontier is expanding?}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.47\textwidth}
+      \pill{Production frontier}\par\vspace{0.35cm}
+      \large The set of languages in which a developer can \alert{ship code now}.
+      \vspace{0.55cm}
+      \begin{itemize}
+        \item familiar set $\mathcal K_i$
+        \item unfamiliar set $\mathcal U_i$
+        \item active count $N^g_{it}=\sum_k Z^g_{ik,t}$
+      \end{itemize}
+    \column{0.47\textwidth}
+      \pill{Not necessarily learning}\par\vspace{0.35cm}
+      \large Delegation may activate a language without raising the developer's language-specific skill $s$.
+      \vspace{0.55cm}
+      \begin{itemize}
+        \item developer specifies and verifies
+        \item agent executes a share $\lambda$
+        \item learning is a later, ambiguous signal channel
+      \end{itemize}
+  \end{columns}
+  \source{Quispe and Xu, Section 3 and Appendix learning extension.}
+  \note{Timing: 1:10. Keep production capability separate from human capital. This distinction prevents an apparent contradiction with deskilling models. [Sources] Quispe--Xu Sections 3.1 and 3.4; Appendix learning extension.}
+\end{frame}
+
+\begin{frame}{3. Three modes, one opportunity shock}
+  \small
+  \begin{align*}
+    V^S &= \omega+s\mu-\frac{\rho s^2}{2\pi}-b,\\[0.25em]
+    V^C &= V^S+\gamma s-r_C,\\[0.25em]
+    V^D &= \omega+(1-\lambda)s\mu+\lambda a z(A)-\kappa(a,s)-r_D-b\\
+        &\hspace{2.1em}-\frac{\rho}{2}\left[\frac{(1-\lambda)^2s^2}{\pi}+\sigma_D^2(a,s,A)\right].
+  \end{align*}
+  \vspace{0.15cm}
+  \begin{center}
+  \begin{tikzpicture}[node distance=0.45cm]
+    \node[draw=navy,rounded corners,fill=paper,minimum width=3.6cm,minimum height=1cm,align=center] (s) {\textbf{Solo}\\skill $+$ match risk};
+    \node[draw=teal,rounded corners,fill=pale,minimum width=3.6cm,minimum height=1cm,right=of s,align=center] (c) {\textbf{Conversation}\\gain scales with $s$};
+    \node[draw=orange,rounded corners,fill=orange!8,minimum width=3.6cm,minimum height=1cm,right=of c,align=center] (d) {\textbf{Delegation}\\agent output $+$ verification};
+  \end{tikzpicture}
+  \end{center}
+  \source{Quispe and Xu, Equations (1)--(3).}
+  \note{Timing: 1:40. Define $a$ as general specification/verification ability and $s$ as language-specific execution skill. Emphasize that every surplus is affine in $\omega$. [Sources] Quispe--Xu Section 3.1, Equations 1--3.}
+\end{frame}
+
+\begin{frame}{4. Entry is a threshold comparison}
+  \small
+  \begin{align*}
+    T^S &= b-s\mu+\frac{\rho s^2}{2\pi},
+    &T^C&=T^S-(\gamma s-r_C),\\
+    T^1 &= \min\{T^S,T^C\}=T^S-\max\{0,\gamma s-r_C\},\\
+    T^D &= b-(1-\lambda)s\mu-\lambda a z(A)+\kappa(a,s)+r_D
+      +\frac{\rho}{2}\left[\frac{(1-\lambda)^2s^2}{\pi}+\sigma_D^2\right],\\
+    T^2 &= \min\{T^1,T^D\}\le T^1.
+  \end{align*}
+  \vspace{0.25cm}
+  \resultbox{A language is active iff $\omega\ge T^g$. Menu nesting, $\{S,C\}\subset\{S,C,D\}$, mechanically proves $Z^2\ge Z^1$ and $N^2\ge N^1$ path by path.}
+  \source{Quispe and Xu, Equations (4)--(7), Proposition 1.}
+  \note{Timing: 1:25. Derive by setting each certainty equivalent greater than or equal to zero. Distinguish the weak theorem from strict behavior change. [Sources] Quispe--Xu Section 3.2, Equations 4--7, Proposition 1.}
+\end{frame}
+
+\begin{frame}{5. The main object: the activation band}
+  \small
+  \textbf{Conditions.} Unfamiliar language; Assumption 1 $\gamma s-r_C\le0$, hence $T^1=T^S$; and
+  \[
+    B\equiv T^S-T^D
+    =\lambda[az(A)-s\mu]-\kappa-r_D
+    +\frac{\rho}{2}\left[\frac{(2\lambda-\lambda^2)s^2}{\pi}-\sigma_D^2\right]>0.
+  \]
+  \begin{center}
+  \begin{tikzpicture}[x=1cm,y=1cm]
+    \draw[-{Latex[length=3mm]},navy,line width=1.2pt] (0,0)--(12.5,0) node[right] {$\omega$};
+    \draw[orange,line width=7pt] (4,0)--(8.6,0);
+    \draw[navy,line width=1pt] (4,-0.18)--(4,0.18) node[below=5pt] {$T^D$};
+    \draw[navy,line width=1pt] (8.6,-0.18)--(8.6,0.18) node[below=5pt] {$T^S$};
+    \node[above=7pt,text=muted] at (2,0) {inactive};
+    \node[above=7pt,text=orange,font=\bfseries] at (6.3,0) {newly feasible};
+    \node[above=7pt,text=teal] at (10.5,0) {already feasible};
+    \fill[orange] (4,0) circle (2.3pt);
+    \draw[orange,fill=white,line width=1pt] (8.6,0) circle (2.5pt);
+  \end{tikzpicture}
+  \end{center}
+  \[
+    \boxed{Z^2-Z^1=\mathbf 1\{T^D\le\omega<T^S\}}
+  \]
+  \source{Quispe and Xu, Equation (8), Proposition 2.}
+  \note{Timing: 2:00. This is the slide to be able to reproduce. Explain every term in $B$. The lower endpoint is closed; the upper endpoint is open. [Sources] Quispe--Xu Equation 8 and Proposition 2.}
+\end{frame}
+
+\begin{frame}{6. Conditions are doing real work}
+  \small
+  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.8cm}>{\raggedright\arraybackslash}p{4.4cm}>{\raggedright\arraybackslash}p{5.8cm}@{}}
+    \toprule
+    \textbf{Condition} & \textbf{What it buys} & \textbf{If it fails} \\
+    \midrule
+    Assumption 1: $\gamma s-r_C\le0$ & old unfamiliar-language threshold is $T^S$ & compare $T^D$ with $T^1$, not necessarily $T^S$ \\
+    $B=T^S-T^D>0$ & nonempty strict activation band & $B=0$: empty; $B<0$: old threshold binds \\
+    activity means $V\ge0$ & exact endpoints $[T^D,T^S)$ & changing the convention changes boundary cases \\
+    $F$ continuous & probability $F(T^S)-F(T^D)$ & atoms require left-limit bookkeeping \\
+    opportunity mass in band & positive average effect & pathwise weak expansion can coexist with zero mean change \\
+    \bottomrule
+  \end{tabular}
+  \vspace{0.4cm}
+  \resultbox{At $\omega=T^D$: new menu active, old menu inactive. At $\omega=T^S$: both menus active.}
+  \source{Quispe and Xu, Proposition 2 and proof.}
+  \note{Timing: 1:25. Walk through both endpoints aloud. This guards against the most common indicator error. [Sources] Quispe--Xu Proposition 2 and Appendix proof.}
+\end{frame}
+
+\begin{frame}{7. Hand derivation: authentic evidence still pending}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.56\textwidth}
+      \textbf{Required handwritten chain}
+      \begin{enumerate}
+        \item isolate $\omega$ in $V^S\ge0$ and $V^D\ge0$
+        \item use Assumption 1 to set $T^1=T^S$
+        \item simplify $B=T^S-T^D$
+        \item prove the indicator identity
+        \item test $T^D$ and $T^S$ separately
+      \end{enumerate}
+      \vspace{0.35cm}
+      \[
+        \mathbf 1\{\omega\ge T^D\}-\mathbf 1\{\omega\ge T^S\}
+        =\mathbf 1\{T^D\le\omega<T^S\}.
+      \]
+    \column{0.38\textwidth}
+      \begin{tikzpicture}
+        \node[draw=orange,dashed,rounded corners=4pt,minimum width=5.1cm,minimum height=4.4cm,text width=4.45cm,align=center,fill=orange!5] {\Large Authentic photo\\[0.25cm]\textbf{not yet supplied}\\[0.35cm]\small Add the user's own image as\\\texttt{hand/activation-band-\\derivation.jpg}};
+      \end{tikzpicture}
+  \end{columns}
+  \source{Repository hand/README.md; no synthetic image is used.}
+  \note{Timing: 0:50. State the integrity choice plainly: the repository prepares the derivation and exact filename but does not fabricate handwriting.}
+\end{frame}
+
+\begin{frame}{8. A numerical stress test exposes the switch}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.58\textwidth}
+      \begin{tikzpicture}
+      \begin{axis}[
+        width=8.4cm,height=5.6cm,
+        xlabel={general ability $a$},ylabel={activation probability},
+        xmin=0,xmax=1.5,ymin=0,ymax=0.32,
+        grid=both,grid style={paper},
+        axis line style={navy},tick label style={font=\scriptsize},label style={font=\small},
+        every axis plot/.append style={line width=1.8pt,mark=*}
+      ]
+        \addplot[teal] coordinates {(0,0) (.25,0) (.5,0) (.75,.0674) (1,.1403) (1.25,.2149) (1.5,.2891)};
+      \end{axis}
+      \end{tikzpicture}
+    \column{0.38\textwidth}
+      \small
+      \textbf{Transparent illustration}
+      \begin{itemize}
+        \item standard-normal $\omega$
+        \item parameters fixed except $a$
+        \item Assumption 1 verified
+        \item exact endpoint assertions
+      \end{itemize}
+      \vspace{0.3cm}
+      \resultbox{Nothing happens until $B>0$. This is a mechanism check, not an estimate or calibration.}
+  \end{columns}
+  \source{Repository analysis/activation\_band.py and generated CSV.}
+  \note{Timing: 1:05. At $a=.50$, $B$ is still slightly negative; at $.75$, the band opens. Avoid calling this empirical evidence.}
+\end{frame}
+
+\begin{frame}{9. From a first-use flow to a cumulative stock}
+  \small
+  For an initially unfamiliar language with first-use hazard $p^g_{ik}$,
+  \[
+    \Delta C_i(s)=\sum_{k\in\mathcal U_i}
+      \left[(1-p^1_{ik})^{s+1}-(1-p^2_{ik})^{s+1}\right]\ge0
+      \quad\text{if }p^2_{ik}\ge p^1_{ik}.
+  \]
+  \vspace{0.25cm}
+  \begin{center}
+  \begin{tikzpicture}[node distance=0.8cm]
+    \node[draw=navy,rounded corners,fill=paper,minimum width=3cm,minimum height=1cm] (opp) {opportunity arrives};
+    \node[draw=orange,rounded corners,fill=orange!8,minimum width=3cm,minimum height=1cm,right=of opp] (first) {first use (flow)};
+    \node[draw=teal,rounded corners,fill=pale,minimum width=3cm,minimum height=1cm,right=of first] (stock) {ever used (stock)};
+    \draw[-{Latex},line width=1.2pt,navy] (opp)--(first);
+    \draw[-{Latex},line width=1.2pt,navy] (first)--(stock);
+  \end{tikzpicture}
+  \end{center}
+  \vspace{0.25cm}
+  \resultbox{Strict increase and strict discrete concavity do \emph{not} follow from $p^2\ge p^1$ alone. A sufficient nondegenerate benchmark is $p^1=0<p^2<1$; if $p^2=1$, the stock jumps once and then is flat.}
+  \source{Quispe and Xu, Proposition 3 and Appendix proof.}
+  \note{Timing: 1:25. Explain why new-language flows can spike and fade while cumulative breadth keeps rising. [Sources] Quispe--Xu Proposition 3 and Appendix proof.}
+\end{frame}
+
+\begin{frame}{10. Heterogeneity and repositories: extra assumptions}
+  \small
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+      \pill{Proposition 4}\par\vspace{0.3cm}
+      \[
+        \mathbb E[E_i\mid a_i,U_i]=U_i p_i(a_i,A).
+      \]
+      \begin{itemize}
+        \item comparable unfamiliar candidates
+        \item $p_i$ increasing in ability under verification technology
+        \item strictness needs positive density at threshold
+      \end{itemize}
+    \column{0.48\textwidth}
+      \pill{Proposition 5}\par\vspace{0.3cm}
+      Repository entry expands if:
+      \begin{itemize}
+        \item each repository requires a language
+        \item its entry cost weakly falls when that language activates
+        \item strictness needs repositories in the band
+      \end{itemize}
+  \end{columns}
+  \source{Quispe and Xu, Assumptions 2--3 and Propositions 4--5.}
+  \note{Timing: 1:10. These are not free corollaries of menu nesting. Name Assumption 2: verification cost falls strictly in ability; residual risk falls weakly in ability, skill, and agent capability.}
+\end{frame}
+
+\begin{frame}{11. Evidence: large event study, cautious interpretation}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.46\textwidth}
+      \begin{tikzpicture}[x=1cm,y=1cm]
+        \node[draw=navy,rounded corners,fill=paper,minimum width=6cm,minimum height=1.2cm,align=center] (sample) {\textbf{5,346 developers}\\28 months};
+        \node[draw=teal,rounded corners,fill=pale,minimum width=6cm,minimum height=1.2cm,below=0.55cm of sample,align=center] (data) {3.2m commits\\57m changed files};
+        \node[draw=orange,rounded corners,fill=orange!8,minimum width=6cm,minimum height=1.2cm,below=0.55cm of data,align=center] (event) {staggered adoption\\event time};
+        \draw[-{Latex},navy,line width=1.1pt] (sample)--(data);
+        \draw[-{Latex},navy,line width=1.1pt] (data)--(event);
+      \end{tikzpicture}
+    \column{0.50\textwidth}
+      \textbf{Adoption-month associations}
+      \begin{itemize}
+        \item active languages: $+2.5$ vs. $0.9$ baseline
+        \item newly used languages: about $+1.2$ vs. $0.31$ baseline
+        \item entropy: $+0.38$
+        \item cumulative breadth: about $+1.6$
+      \end{itemize}
+      \vspace{0.3cm}
+      \resultbox{An unfamiliar-language project may cause both adoption and first use. The authors do not claim definitive causality.}
+  \end{columns}
+  \source{Quispe and Xu, abstract, Sections 2 and 4--5, Tables/Figures reported in text.}
+  \note{Timing: 1:25. Present magnitudes, then immediately give the selection caveat. The empirical evidence is consistent with the band but does not uniquely identify it.}
+\end{frame}
+
+\begin{frame}{12. Same AI, opposite conclusions: one modeling fork}
+  \small
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+      \begin{beamercolorbox}[rounded=true,sep=0.8em]{block body}
+        \textbf{Quispe--Xu}\par\vspace{0.3cm}
+        \[\{S,C\}\longrightarrow\{S,C,D\}\]
+        AI creates an optional delegation mode. General ability supports specification and verification; interaction can later generate information signals.
+        \vspace{0.3cm}
+        \textbf{Prediction:} lower language-entry thresholds, frontier expansion.
+      \end{beamercolorbox}
+    \column{0.48\textwidth}
+      \begin{beamercolorbox}[rounded=true,sep=0.8em]{block body}
+        \textbf{Aouad--Lykouris--Zhong}\par\vspace{0.3cm}
+        \[x=s+e+a\]
+        AI assistance, skill, and effort are perfect substitutes. More $a$ crowds out effort; effort governs future skill transitions.
+        \vspace{0.3cm}
+        \textbf{Prediction:} deskilling and possible long-run productivity decline.
+      \end{beamercolorbox}
+  \end{columns}
+  \vspace{0.35cm}
+  \centering\alert{The core contrast is menu expansion versus input substitution. Information is secondary in Quispe--Xu.}
+  \source{Quispe and Xu, Section 3 and learning appendix; Aouad, Lykouris, and Zhong, Sections 2--4.}
+  \note{Timing: 1:45. This is the synthesis slide. Use the requested signal-versus-input language, then refine it: signals explain persistence, not immediate activation. [Sources] arXiv:2605.25438v2 and arXiv:2605.11350.}
+\end{frame}
+
+\begin{frame}{13. Lean: paper equation $\rightarrow$ proof $\rightarrow$ meaning $\rightarrow$ check}
+  \small
+  \textbf{Paper equation}
+  \[
+    Z^2-Z^1=\mathbf 1\{T^D\le\omega<T^S\}\qquad(T^D<T^S).
+  \]
+  \textbf{Lean statement and proof}
+  \LeanSnippet
+  \textbf{Explanation}
+
+  The draft represents activity with integer-valued indicators and splits on both cutoffs. The paper-scoped checker did not verify the draft: the agent exhausted its usage limit before EconCSLib generated the paper folder.
+
+  \textbf{Build/check result}\quad \LeanBuildResult
+  \source{Own GPT-5.6 Sol xhigh attempt; exact commands and outputs in LEAN\_STATUS.md. No lean/ folder was generated.}
+  \note{Timing: 1:30. Preserve the required order. Read the translation as an endpoint case split, then state the blocker honestly: it is a draft, not a successful paper-scoped check.}
+\end{frame}
+
+\begin{frame}{14. Verdict}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.58\textwidth}
+      {\Large\color{navy}\textbf{What the model earns}}
+      \vspace{0.35cm}
+      \begin{itemize}
+        \item weak expansion from menu inclusion
+        \item strict activation in a precisely defined band
+        \item testable extensive-margin heterogeneity
+      \end{itemize}
+      \vspace{0.55cm}
+      {\Large\color{navy}\textbf{What the evidence does not earn}}
+      \vspace{0.35cm}
+      \begin{itemize}
+        \item causal identification of the agent mechanism
+        \item proof that activated languages become human skill
+      \end{itemize}
+    \column{0.36\textwidth}
+      \begin{tikzpicture}
+        \node[draw=teal,very thick,rounded corners=6pt,fill=pale,minimum width=5cm,minimum height=4.6cm,text width=4.25cm,align=center] {\Large The conclusion flips when AI changes from a \textbf{substitutable input} into an \textbf{optional delegated mode}.};
+      \end{tikzpicture}
+  \end{columns}
+  \source{Synthesis of arXiv:2605.25438v2 and arXiv:2605.11350.}
+  \note{Timing: 0:55 plus questions. Close on the modeling choice rather than the coefficient list.}
+\end{frame}
+
+\end{document}

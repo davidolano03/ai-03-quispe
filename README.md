@@ -18,7 +18,7 @@ The formal result is weak frontier expansion whenever delegated value weakly dom
 
 ## Repository map
 
-- `presentation.pdf`: 20-minute presentation imported from the approved pilot repository.
+- `presentation.tex` and `presentation.pdf`: associated source and compiled 20-minute presentation imported from the approved pilot repository.
 - `lean/`: EconCSLib paper folder, including five proposition specifications and compiling proof endpoints.
 - `hand/DERIVATION.md`: exact derivation to reproduce by hand; replace the placeholder with an authentic photo before submission.
 - `prompts.md`: prompt/answer log and citation-discrepancy exercise.
