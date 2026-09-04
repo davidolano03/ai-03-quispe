@@ -18,7 +18,7 @@ The requested citation is not the current bibliographic record. arXiv v2 lists *
 
 ### Raw prompt (credential removed)
 
-> Follow all instructions in GitHub issue #2 for the paper, except the required model-configuration instruction and Step 4 (“post your link — right there”). Work in repository `ai-03-quispe`.
+> Follow all instructions in GitHub issue #2 for the paper. Work in repository `ai-03-quispe`.
 
 ### Relevant answer/work product
 
