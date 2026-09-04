@@ -20,7 +20,7 @@ The formal result is weak frontier expansion whenever delegated value weakly dom
 
 - `presentation.tex` and `presentation.pdf`: associated source and compiled 20-minute presentation imported from the approved pilot repository.
 - `lean/`: EconCSLib paper folder, including five proposition specifications and compiling proof endpoints.
-- `hand/DERIVATION.md`: exact derivation to reproduce by hand; replace the placeholder with an authentic photo before submission.
+- `hand/`: authentic two-page handwritten derivation, its original PDF, and the page images used on slide 7.
 - `prompts.md`: prompt/answer log and citation-discrepancy exercise.
 - `analysis/check_prop3.py`: numerical endpoint check for Proposition 3.
 - `LEAN_CHECK.md`: formal verification and contribution-check record.
